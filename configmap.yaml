@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app2-data
+  namespace: batch1-2024
+data:
+  "APP2_URL": "app2.batch1.com"
+  "APP2_NAME": "carts"
