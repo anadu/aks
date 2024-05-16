@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: batch1-deployment
-  namespace: batch1-2024
+  namespace: batch1
   labels:
     app: batch1
 spec:
