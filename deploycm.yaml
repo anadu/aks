@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: batch1-deployment
+  namespace: batch1-2024
+  labels:
+    app: batch1
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: batch1
+  template:
+    metadata:
+      labels:
+        app: batch1
+    spec:
+      containers:
+      - name: batch1-deploy-c1
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+        env:
+          - name: APP2_URL
+            valueFrom:
+              configMapKeyRef:
+                name: app2-data
+                key: APP2_URL
+          - name: APP2_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: app2-data
+                key: APP2_NAME
